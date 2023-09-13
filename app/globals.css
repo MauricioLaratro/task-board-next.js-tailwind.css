@@ -29,3 +29,18 @@ body {
 .header{
   @apply flex items-center justify-center bg-black/40
 }
+
+.card-element{
+  @apply flex justify-between items-center
+}
+.card-container::-webkit-scrollbar-thumb{
+  background-color: #164E63;
+  border-radius: 10px;
+  border: 3px solid #ffffff;
+}
+.card-container::-webkit-scrollbar{
+  width: 14px;
+}
+.card-container::-webkit-scrollbar-track{
+  background: #ffffff;
+}

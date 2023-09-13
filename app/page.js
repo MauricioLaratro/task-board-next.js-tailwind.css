@@ -4,7 +4,7 @@ import Board from './components/board'
 
 export default function Home() {
   return (
-    <RootLayout className='bg-green-900'>
+    <RootLayout>
       <Header />
       <Board />
     </RootLayout>
