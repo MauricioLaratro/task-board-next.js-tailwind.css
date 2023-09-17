@@ -44,3 +44,18 @@ body {
 .card-container::-webkit-scrollbar-track{
   background: #ffffff;
 }
+
+/* Clase de sombra para la lista TODO */
+.todo-shadow {
+  box-shadow: 0 4px 6px #ef4444;
+}
+
+/* Clase de sombra para la lista In Progress */
+.inprogress-shadow {
+  box-shadow: 0 4px 6px #fde047;
+}
+
+/* Clase de sombra para la lista Done */
+.done-shadow {
+  box-shadow: 0 4px 6px #22c55e;
+}
