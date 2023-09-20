@@ -30,7 +30,7 @@ function Board() {
         </h1>
       </div>
       <main className="flex flex-1 gap-6 ">
-        <List title="TODO" handleDrop={handleDrop} id="todoList">
+        <List title="TODO" handleDrop={handleDrop} setListOfLists={setListOfLists} listOfLists={listOfLists} id="todoList">
           {
             listOfLists.todoList.map(item => (
               <Card {...item} key={item.id} setDragged={setDragged} listId="todoList"/>
@@ -38,7 +38,7 @@ function Board() {
           }
 
         </List>
-        <List title="In Progress" handleDrop={handleDrop} id="inProgressList">
+        <List title="In Progress" handleDrop={handleDrop} setListOfLists={setListOfLists} listOfLists={listOfLists} id="inProgressList">
           {
             listOfLists.inProgressList.map(item => (
               <Card {...item} key={item.id} setDragged={setDragged} listId="inProgressList"/>
@@ -46,7 +46,7 @@ function Board() {
           }
 
         </List>
-        <List title="Done" handleDrop={handleDrop} id="doneList">
+        <List title="Done" handleDrop={handleDrop} setListOfLists={setListOfLists} listOfLists={listOfLists} id="doneList">
           {
             listOfLists.doneList.map(item => (
               <Card {...item} key={item.id} setDragged={setDragged} listId="doneList"/>

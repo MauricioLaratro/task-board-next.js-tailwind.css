@@ -52,7 +52,7 @@ function Card({ title, user, comments = [], id, setDragged, listId }) {
           {comments.length > 0 ? comments.length : null}
         </span>
         <span>
-          <Image src={user.avatar} width={20} height={20} />
+          <Image src="/avatar.png" width={20} height={20} />
         </span>
       </div>
     </div>

@@ -1,11 +1,31 @@
 import Image from "next/image"
+import { useEffect, useState } from "react"
+import AddCard from "./add-card"
 
 
-function List({ title, children, handleDrop, id }) {
+function List({ title, children, handleDrop, id, listOfLists, setListOfLists }) {
+    let cardId = Math.random()
 
     function handleDragOver(event) {
         event.preventDefault()
     }
+    const [isCreateOpen, setIsCreateOpen] = useState(false)
+    const [newCard, setNewCard] = useState('')
+
+    function handleClick(){
+        setIsCreateOpen(true)
+    }
+
+     useEffect(() => {
+        if(newCard){
+            setListOfLists((prevLists) => ({
+                ...prevLists,
+                [id]: [...prevLists[id], { title: newCard.data.title, id: cardId }],
+            }));
+            setIsCreateOpen(false)
+        }
+     }, [newCard])
+     console.log(listOfLists)
 
     return (
         <div data-id={id} className="relative flex-1" onDragOver={handleDragOver} onDrop={handleDrop}>
@@ -20,9 +40,11 @@ function List({ title, children, handleDrop, id }) {
                     <span className="max-h-[24px]">
                        <Image src="/plus.svg" width={24} height={24}/>
                     </span>
-                    <p className="">
+                    {isCreateOpen ? <AddCard setNewCard={setNewCard} setIsCreateOpen={setIsCreateOpen}></AddCard> :
+                    <button className="" onClick={handleClick}>
                         Añadir otra tarjeta
-                    </p>
+                    </button>}
+
                 </div>
             </div>
         </div>
