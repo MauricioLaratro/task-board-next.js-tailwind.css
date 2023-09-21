@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { useId } from "react"
 
-function AddCard({ setNewCard, setIsCreateOpen }) {
+function AddCard({ setNewCard, setIsCreateOpen, setError }) {
   let id = useId()
   
   function handleSubmit(e){
@@ -15,18 +15,18 @@ function AddCard({ setNewCard, setIsCreateOpen }) {
 
   function handleCloseClick(){
     setIsCreateOpen(false)
+    setError("")
   }
 
 
   
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+    <form onSubmit={handleSubmit} className="flex w-full flex-1 flex-col gap-5 overflow-hidden">
       <div className="flex gap-1 p-2 bg-white rounded" >
         <input name="title" className="flex-1 bg-white outline-none" type="text" placeholder="Introduzca un título para esta tarjeta..." />
-        <Image src="/edit.svg" alt="" width="24" height="24" />
       </div>
-      <div className="flex items-center gap-4">
-        <button className="p-2 text-white rounded bg-sky-600">Añada Tarjeta</button>
+      <div className="flex items-center justify-center gap-4">
+        <button className="p-2 text-white rounded bg-sky-600">Añadir Tarjeta</button>
         <button className="h-6 cursor-pointer" onClick={(handleCloseClick)}>
           <Image src="/close.svg" alt="" width="24" height="24" />
         </button>
