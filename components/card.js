@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { global } from "styled-jsx/css";
+import PortalExample from "./portal"
 
 function Card({ title, user, comments = [], id, setDragged, listId }) {
   // Determina la clase de sombra en función del listId
@@ -20,7 +20,6 @@ function Card({ title, user, comments = [], id, setDragged, listId }) {
   }
 
   function handleDragStart(event) {
-    console.log(event.target.closest('[data-id]').dataset.id)
     setDragged({
       data: {
         title,
@@ -43,7 +42,8 @@ function Card({ title, user, comments = [], id, setDragged, listId }) {
           {title}
         </p>
         <span>
-          <Image src="/edit.svg" width={20} height={20} />
+          {/* <Image src="/edit.svg" width={20} height={20} /> */}
+          <PortalExample />
         </span>
       </div>
       <div className="flex justify-between">
