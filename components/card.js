@@ -1,7 +1,8 @@
 import Image from "next/image";
 import PortalExample from "./portal"
+import { useState, useEffect } from "react";
 
-function Card({ title, user, comments = [], id, setDragged, listId }) {
+function Card({ title, user, comments = [], id, cardId, setDragged, listId, updateCardTitle }) {
   // Determina la clase de sombra en función del listId
   let shadowClass = '';
 
@@ -31,6 +32,21 @@ function Card({ title, user, comments = [], id, setDragged, listId }) {
     });
   }
 
+  const [editedTitle, setEditedTitle] = useState(title)
+
+  // Función para manejar la edición del título
+  const handleTitleEdit = (newTitle) => {
+    setEditedTitle(newTitle);
+  };
+
+  // Cuando se actualiza el título editado, llama a la función para actualizar el título en el estado global
+  useEffect(() => {
+    updateCardTitle(listId, cardId, editedTitle);
+  }, [editedTitle]);
+
+  
+
+
   return (
     <div
       draggable
@@ -39,11 +55,10 @@ function Card({ title, user, comments = [], id, setDragged, listId }) {
     >
       <div className="flex justify-between">
         <p>
-          {title}
+          {editedTitle}
         </p>
         <span>
-          {/* <Image src="/edit.svg" width={20} height={20} /> */}
-          <PortalExample />
+          <PortalExample onTitleEdit={handleTitleEdit}/>
         </span>
       </div>
       <div className="flex justify-between">
