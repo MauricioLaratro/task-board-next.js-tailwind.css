@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import ModalContent from './modal.js';
 
-export default function PortalExample({ onTitleEdit  }) {
+export default function PortalExample({ onTitleEdit, title }) {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
@@ -11,7 +11,7 @@ export default function PortalExample({ onTitleEdit  }) {
         <Image src="/edit.svg" width={20} height={20} alt="Boton para editar titulo"/>
       </button>
       {showModal && createPortal(
-        <ModalContent onClose={() => setShowModal(false)} onTitleEdit={onTitleEdit}/>,
+        <ModalContent onClose={() => setShowModal(false)} onTitleEdit={onTitleEdit} title={title}/>,
         document.getElementById('new-DOM-node')
       )}
     </>

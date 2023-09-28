@@ -44,9 +44,6 @@ function Card({ title, user, comments = [], id, cardId, setDragged, listId, upda
     updateCardTitle(listId, cardId, editedTitle);
   }, [editedTitle]);
 
-  
-
-
   return (
     <div
       draggable
@@ -54,11 +51,11 @@ function Card({ title, user, comments = [], id, cardId, setDragged, listId, upda
       className={`shadow flex flex-col gap-4 p-2 text-gray-900 bg-white rounded-sm card ${shadowClass}`}
     >
       <div className="flex justify-between">
-        <p>
+        <p className="font-semibold underline">
           {editedTitle}
         </p>
         <span>
-          <PortalExample onTitleEdit={handleTitleEdit}/>
+          <PortalExample onTitleEdit={handleTitleEdit} title={title}/>
         </span>
       </div>
       <div className="flex justify-between">
