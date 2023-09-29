@@ -2,7 +2,7 @@ import Image from "next/image";
 import PortalExample from "./portal"
 import { useState, useEffect } from "react";
 
-function Card({ title, user, comments = [], id, cardId, setDragged, listId, updateCardTitle }) {
+function Card({ title, user, comments: initialComments = [], id, cardId, setDragged, listId, updateCardTitle }) {
   // Determina la clase de sombra en función del listId
   let shadowClass = '';
 
@@ -44,6 +44,13 @@ function Card({ title, user, comments = [], id, cardId, setDragged, listId, upda
     updateCardTitle(listId, cardId, editedTitle);
   }, [editedTitle]);
 
+
+  const [comments, setComments] = useState(initialComments);
+  const addComment = (comment) => {
+    const updatedComments = [...comments, comment];
+    setComments(updatedComments);
+  };
+
   return (
     <div
       draggable
@@ -55,7 +62,7 @@ function Card({ title, user, comments = [], id, cardId, setDragged, listId, upda
           {editedTitle}
         </p>
         <span>
-          <PortalExample onTitleEdit={handleTitleEdit} title={title}/>
+          <PortalExample onTitleEdit={handleTitleEdit} title={title} addComment={addComment} comments={comments}/>
         </span>
       </div>
       <div className="flex justify-between">
