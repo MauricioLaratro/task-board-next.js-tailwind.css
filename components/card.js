@@ -33,6 +33,7 @@ function Card({ title, user, comments: initialComments = [], id, cardId, setDrag
   }
 
   const [editedTitle, setEditedTitle] = useState(title)
+  
 
   // Función para manejar la edición del título
   const handleTitleEdit = (newTitle) => {
