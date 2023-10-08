@@ -21,7 +21,7 @@ function AddCard({ setNewCard, setIsCreateOpen, setError }) {
 
   
   return (
-    <form onSubmit={handleSubmit} className="flex w-full flex-1 flex-col gap-5 overflow-hidden">
+    <form onSubmit={handleSubmit} className="flex flex-col flex-1 w-full gap-5 overflow-hidden">
       <div className="flex gap-1 p-2 bg-white rounded" >
         <input name="title" className="flex-1 bg-white outline-none" type="text" placeholder="Introduzca un título para esta tarjeta..." />
       </div>

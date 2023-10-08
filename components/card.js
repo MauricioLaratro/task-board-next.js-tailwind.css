@@ -1,6 +1,8 @@
 import Image from "next/image";
 import PortalExample from "./portal"
 import { useState, useEffect } from "react";
+import Edit from "./icon/edit";
+import Comment from "./icon/comment";
 
 function Card({ title, user, comments: initialComments = [], id, cardId, setDragged, listId, updateCardTitle }) {
   // Determina la clase de sombra en función del listId
@@ -63,12 +65,12 @@ function Card({ title, user, comments: initialComments = [], id, cardId, setDrag
           {editedTitle}
         </p>
         <span>
-          <PortalExample onTitleEdit={handleTitleEdit} title={title} addComment={addComment} comments={comments}/>
+          <PortalExample onTitleEdit={handleTitleEdit} title={title} addComment={addComment} comments={comments} icon={<Edit size={20}/>}/>
         </span>
       </div>
       <div className="flex justify-between">
         <span className="flex gap-1 commentsss">
-          <Image src="/comment.svg" width={20} height={20} />
+          <PortalExample onTitleEdit={handleTitleEdit} title={title} addComment={addComment} comments={comments} icon={<Comment size={20}/>}/>
           {comments.length > 0 ? comments.length : null}
         </span>
         <span>
